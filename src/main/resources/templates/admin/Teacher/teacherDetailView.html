@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>ACE Inspiration</title>
+
+  <!-- Custom fonts for this template-->
+
+  <link th:href="@{/adminStyle/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
+  <link
+          href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link th:href="@{/adminStyle/css/sb-admin-2.min.css}" rel="stylesheet">
+  <link th:href="@{/adminStyle/css/main.css}" rel="stylesheet">
+
+
+  <link rel="stylesheet" th:href="@{/adminStyle/css/reviewstar.css}">
+  <script type='text/javascript' th:src='@{/adminStyle/js/jquery.min.js}'></script>
+  <script type='text/javascript' th:src='@{/adminStyle/js/popper.min.js}'></script>
+
+</head>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <div th:replace="fragments/AdminHomeSidebar::adminhomesidebar"></div>
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- th replace -->
+        <div th:replace="fragments/AdminHomeHeader::adminhomenavbar"></div>
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 cardHeader">Teacher Detail</h1>
+
+          </div>
+
+
+
+          <!-- Content Row -->
+
+          <div class="row">
+
+            <div class="card-body">
+
+
+              <div class="card-body" style="background-color: white;">
+
+                <br>
+                 
+                
+                <div class="row" >
+                  <div class="col-md-4">
+                    <div class="form-group row">
+                     
+                      <div class="col-sm-10">
+                      <a th:href="@{${teacher.img}}">
+                        <span  ><img alt="Teacher Photo"  th:src="@{${teacher.img}}" style="width :300px;height:300px "></span>
+                       </a>  
+                      </div>
+                      
+                            <br> 
+                          
+                         <span class="text-center" style="padding-left: 20%;">Teacher Profile</span>
+                        
+                          <br>
+                        <br>
+                        
+                      <div class="col-sm-10">
+                      <a th:href="@{${teacher.cv}}">
+                        <span  ><img alt="Teacher CV"  th:src="@{${teacher.cv}}" style="width :300px;height:200px "></span>
+                     </a>
+                      </div>
+                        
+.                      
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label style="font-weight: bold;" class="col-sm-4 col-form-label">Teacher ID</label>
+                      <div class="col-sm-8">
+                        <span th:text="${teacher.teacherId}">T001 </span>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label style="font-weight: bold;" class="col-sm-4 col-form-label">Name</label>
+                      <div class="col-sm-8">
+                        <span th:text="${teacher.name}">Aye Aye </span>
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label style="font-weight: bold;" class="col-sm-4 col-form-label">NRC</label>
+                      <div class="col-sm-8">
+                        <span th:text="${teacher.nrc}">12/LaMaNa(N)152684</span>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label style="font-weight: bold;" class="col-sm-4 col-form-label">Email</label>
+                      <div class="col-sm-8">
+                        <span th:text="${teacher.email}">ayeaye@gmail.com</span>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label style="font-weight: bold;" class="col-sm-4 col-form-label">Phone</label>
+                      <div class="col-sm-8">
+                        <span th:text="${teacher.phNo}">09-751423698</span>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label style="font-weight: bold;" class="col-sm-4 col-form-label">Address</label>
+                      <div class="col-sm-8">
+                        <span  th:text="${teacher.address}">No(156), Than Street, Hlaing Township, Yangon</span>
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label style="font-weight: bold;" class="col-sm-4 col-form-label">Other Qualification</label>
+                      <div class="col-sm-8">
+                        <span  th:text="${teacher.education}">BcSc</span>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label style="font-weight: bold;" class="col-sm-4 col-form-label">Other Certificate</label>
+                      <div class="col-sm-8">
+                        <span  th:text="${teacher.other}">Diploma in Computing</span>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  <div class="col-md-2"></div>
+                </div>
+                
+                </form>
+                
+                <div class="col-md-12 text-left" style="padding-left: 0.5;">
+                  <a class="btn backButton" th:href="@{/admin/teacher}">Back</a>
+                </div>
+
+
+
+
+
+
+
+
+              </div>
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+
+
+
+          </div>
+
+        </div><!-- End of Page Content -->
+        <!-- /.container-fluid -->
+      </div>
+      <!-- End of Main Content -->
+
+
+      <!-- th replace -->
+      <div th:replace="fragments/AdminHomeFooter::adminhomefooter"></div>
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div th:replace="fragments/AdminHomeFooter::logoutModel"></div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script th:src="@{/adminStyle/vendor/jquery/jquery.min.js}"></script>
+  <script th:src="@{/adminStyle/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script th:src="@{/adminStyle/vendor/jquery-easing/jquery.easing.min.js}"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script th:src="@{/adminStyle/js/sb-admin-2.min.js}"></script>
+
+  <!-- Page level plugins -->
+  <script th:src="@{/adminStyle/vendor/chart.js/Chart.min.js}"></script>
+
+  <!-- Page level custom scripts -->
+  <script th:src="@{/adminStyle/js/demo/chart-area-demo.js}"></script>
+  <script th:src="@{/adminStyle/js/demo/chart-pie-demo.js}"></script>
+  <!-- Footer Year -->
+  <script th:src="@{/adminStyle/js/currentYear.js}"></script>
+
+
+
+
+
+</body>
+
+</html>

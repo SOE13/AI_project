@@ -1,0 +1,50 @@
+<div th:fragment="adminhomefooter">
+    <!-- Footer -->
+    <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+            <span>Copyright &copy; <a id="aceLink" th:href="@{/}">ACE Inspiration</a>
+
+              <span id="currentYear"></span>
+            </span>
+            </div>
+        </div>
+    </footer>
+    <!-- End of Footer -->
+</div>
+
+<div th:fragment="deleteModel" class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content ">
+				<div class="modal-body text-center">
+					<h5 class="modal-title"  id="exampleModalLabel">Are You Sure To Delete?</h5>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-secondary" type="button"
+						data-dismiss="modal">Cancel</button>
+						<button class="btn btn-danger" onclick="confirmDel()" type="button"
+						>Delete</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<div th:fragment="logoutModel" class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content ">
+				 <div class="modal-body text-center">
+				 <h5 class="modal-title"  id="exampleModalLabel">Ready to Leave?</h5>
+				 </div> 
+				<div class="modal-footer">
+					<button class="btn btn-secondary" type="button"
+						data-dismiss="modal">Cancel</button>
+					<form th:action="@{/logout}" method="post">
+						<input type="submit" value="Logout" class="btn btn-danger">
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+

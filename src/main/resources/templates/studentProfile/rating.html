@@ -1,0 +1,254 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>ACE Inspiration</title>
+
+<!-- Rating Stars -->
+<link th:href="@{/adminStyle/vendor/ratingstar/dist/star-rating.css}"
+	rel="stylesheet" type="text/css">
+<link
+	th:href="@{/adminStyle/vendor/ratingstar/dist/star-rating.min.css}"
+	rel="stylesheet" type="text/css">
+<link th:href="@{/adminStyle/vendor/ratingstar/demo/styles.css}"
+	rel="stylesheet" type="text/css">
+
+<script type='text/javascript'
+	th:src='@{/adminStyle/vendor/ratingstar/dist/star-rating.min.js}'></script>
+
+<!-- Custom fonts for this template-->
+<link th:href="@{/adminStyle/vendor/fontawesome-free/css/all.min.css}"
+	rel="stylesheet" type="text/css">
+<link
+	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+	rel="stylesheet">
+
+<!-- Custom styles for this template-->
+<link th:href="@{/adminStyle/css/sb-admin-2.min.css}" rel="stylesheet">
+<link th:href="@{/adminStyle/css/main.css}" rel="stylesheet">
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+<body id="page-top">
+
+	<!-- Page Wrapper -->
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div
+			th:replace="fragments/StudentProfileSidebar :: studentProlileSitebar"></div>
+		<!-- End of Sidebar -->
+
+		<!-- Content Wrapper -->
+		<div id="content-wrapper" class="d-flex flex-column">
+
+			<!-- Main Content -->
+			<div id="content">
+
+				<!-- Topbar -->
+				<div
+					th:replace="fragments/StudentProfileSidebar :: studentProlileTobbar"></div>
+				<!-- End of Topbar -->
+
+				<!-- Begin Page Content -->
+				<div class="container-fluid">
+
+					<!-- Page Heading -->
+					<div
+						class="d-sm-flex align-items-center justify-content-between mb-4">
+						<h1 class="h3 mb-0 cardHeader">Course Rating</h1>
+
+					</div>
+
+					<!-- Content Row -->
+					<div class="row">
+						<div class="card-body ">
+							<!-- Nested Row within Card Body -->
+							<div class="card-body" style="background-color: white;">
+								<div class="table-responsive">
+
+									<table class="table table-hover" id="dataTable" width="100%"
+										cellspacing="0">
+										<thead>
+
+											<tr>
+												<th>Batch Name</th>
+												<th>Rating</th>
+												<th></th>
+											<!-- 	<th>Action</th> -->
+
+											</tr>
+										</thead>
+										<tbody>
+
+
+
+
+											<tr th:each="batchList :${lstBatch}" >
+												<!-- 	<form th:action="@{/student/courserating}" method="post"> -->
+												<td th:text="${batchList.batchName}" ></td>
+												<td style="min-width: 200px;"><select id="glsr-ltr" class="star-rating" th:disabled="${batchList.rating != 0}">
+														<option value="6">Select a rating</option>
+														<option value="5" id="star" th:selected="${batchList.rating==5}">5</option>
+														<option value="4" id="star" th:selected="${batchList.rating==4}">4</option>
+														<option value="3" id="star" th:selected="${batchList.rating==3}">3</option>
+														<option value="2" id="star" th:selected="${batchList.rating==2}">2</option>
+														<option value="1" id="star" th:selected="${batchList.rating==1}">1</option>
+												</select></td>
+												<td><input type="hidden" id="rating"> <input
+													type="hidden" name="batchID" id="batchID"
+													th:value="${batchList.bId}"> <input type="hidden"
+													name="sID" id="sID" th:value="${batchList.id}"> <input
+													type="hidden" id="batchName" name="batchName"
+													th:value="${batchList.batchName}"></td>
+
+											<!-- <td><input type="button" id="btnRate" value="Rate"
+													class="btn btn-success" onclick="rateCourse(this)"
+													th:disabled="${batchList.rating != 0}"></td>
+
+ -->
+											</tr>
+
+
+
+
+
+										</tbody>
+
+									</table>
+
+
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+					<!-- End of Nested Row -->
+					<!-- End of card-body -->
+				</div>
+
+			</div>
+			<!-- End of Content Row -->
+		</div>
+	</div>
+	<!-- Footer -->
+	<div
+		th:replace="fragments/StudentProfileSidebar :: studentProlileFooter"></div>
+	<!-- End of Footer -->
+
+	</div>
+	<!-- End of Content Wrapper -->
+
+	</div>
+	<!-- End of Page Wrapper -->
+
+	<!-- Scroll to Top Button-->
+	<a class="scroll-to-top rounded" href="#page-top"> <i
+		class="fas fa-angle-up"></i>
+	</a>
+
+	<!-- Logout Modal-->
+
+
+	<!-- Bootstrap core JavaScript-->
+	<script th:src="@{/adminStyle/vendor/jquery/jquery.min.js}"></script>
+	<script
+		th:src="@{/adminStyle/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+
+	<script th:src="@{/adminStyle/vendor/bootstrap/js/bootstrap.min.js}"></script>
+
+	<!-- Core plugin JavaScript-->
+	<script
+		th:src="@{/adminStyle/vendor/jquery-easing/jquery.easing.min.js}"></script>
+
+	<!-- Custom scripts for all pages-->
+	<script th:src="@{/adminStyle/js/sb-admin-2.min.js}"></script>
+
+	<!-- Page level plugins -->
+	<script th:src="@{/adminStyle/vendor/chart.js/Chart.min.js}"></script>
+
+	<!-- Page level custom scripts -->
+	<script th:src="@{/adminStyle/js/demo/chart-area-demo.js}"></script>
+	<script th:src="@{/adminStyle/js/demo/chart-pie-demo.js}"></script>
+	<!-- Footer Year -->
+	<script th:src="@{/adminStyle/js/currentYear.js}"></script>
+
+</body>
+<script  src="/AI/adminStyle/vendor/ratingstar/src/star-rating.js?ver=3.4.0"></script>
+<script>
+	var destroyed = false;
+	var starratings = new StarRating('.star-rating', {
+		onClick : function(el) {
+
+			console.log('Selected: ' + el[el.selectedIndex].text);
+
+		},
+	});
+</script>
+
+
+<script>
+	$(document).ready(function() {
+
+		$('.star-rating').on('change', function() {
+
+			var $select = $(this);
+
+			var selectedText = $select.find('option:selected').text();
+
+			var selectedValue = $select.val();
+
+			var $row = $select.closest("tr"); // Find the row
+			$row.find("#rating").val(selectedValue);
+			rateCourse(this);
+
+		});
+
+	});
+
+	function rateCourse(element) {
+		var rowJavascript = element.parentNode.parentNode;
+		var rowjQuery = $(element).closest("tr");
+		var $row = $(element).closest("tr");
+		var sid = $row.find('#sID').val();
+		var bid = $row.find('#batchID').val();
+		var bName = $row.find('#batchName').val();
+		var rating = $row.find('#rating').val();
+
+		$.ajax({
+			url : "/student/courserating/" + sid + "/" + bid + "/" + bName
+					+ "/" + rating,
+			data : {
+				sid : sid,
+				bid : bid,
+				bName : bName,
+				rating : rating
+			},
+			success : function() {
+				$row.find("input,select option").attr("disabled", true);
+				$row.find('td.star-rating').attr("disabled", true);				 
+				location.reload();
+				alert("Thank for rating")
+			},
+			error : function(xhr, status, error) {
+				alert("error : " + xhr.responseText);
+			},
+		});
+
+	}
+	document.getElementById("sidebarToggle").click();
+</script>
+
+</body>
+</html>

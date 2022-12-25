@@ -1,0 +1,145 @@
+<div th:fragment="studentProlileSitebar">
+<!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar" style="height: 100%;">
+
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" th:href="@{/studentProfile/{id}(id=${student.id})}">
+        <div class="sidebar-brand-icon rotate-n-15">
+          <i class="fas fa-laugh-wink"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">ACE Inspiration</div>
+
+      </a>
+
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+      <!-- Nav Item - Dashboard -->
+
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" th:href="@{/studentProfile/{id}(id=${student.id})}" data-target="#collapseUtilities1" aria-expanded="true"
+          aria-controls="collap
+        seUtilities">
+          <i class="fas fa-user fa-2x text-info"></i>
+          <span>Student Profile</span>
+        </a>
+      </li>
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+
+      <!-- Nav Item - Dashboard -->
+
+
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" th:href="@{/qrCode/{id}(id=${student.id})}" data-target="#collapseUtilities1" aria-expanded="true" aria-controls="collap
+        seUtilities">
+          <i class="fas fa-qrcode fa-2x text-info"></i>
+          <span>QR Code</span>
+        </a>
+      </li>
+   
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+
+
+      <!-- Nav Item - Course Rating Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" th:href="@{/attendance/{id}(id=${student.id})}" data-target="#collapseUtilities1"
+          aria-expanded="true" aria-controls="collap
+        seUtilities">
+          <i class="fas fa-hand-sparkles text-warning"></i>
+          <span>Attendance</span>
+        </a>
+      </li>
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" th:href="@{/courseRating/{id}(id=${student.id})}" data-target="#collapseUtilities1" aria-expanded="true"
+          aria-controls="collap
+        seUtilities">
+          <i class="fas fa-star-half-alt text-warning"></i>
+          <span>Course Rating</span>
+        </a>
+      </li>
+
+      
+
+
+
+      
+      
+      <hr class="sidebar-divider">
+      <!-- Nav Item - Course Outline Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" th:href="@{/payment/{id}(id=${student.id})}" data-target="#collapseUtilities1" aria-expanded="true"
+          aria-controls="collap
+        seUtilities">
+          <i class="fas fa-book fa-2x text-success"></i>
+          <span>Payment</span>
+        </a>
+      </li>
+      <hr class="sidebar-divider">
+      <!-- Nav Item -  Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" th:href="@{/}" data-target="#collapseUtilities1" aria-expanded="true"
+          aria-controls="collap
+          seUtilities">
+          <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+          <span>Logout</span>
+        </a>
+        <hr class="sidebar-divider">
+      </li>
+
+
+      <!-- Sidebar Toggler (Sidebar) -->
+      <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+      </div>
+    </ul>
+    <!-- End of Sidebar -->
+</div>
+
+
+
+<div th:fragment="studentProlileTobbar">
+ <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+          <!-- Topbar Navbar -->
+          <ul class="navbar-nav ml-auto">
+            <div class="topbar-divider d-none d-sm-block"></div>
+            <span>
+              <h4 class="text-gray-800">Hello Student</h4>
+            </span>
+            </li>
+          </ul>
+
+        </nav>
+        <!-- End of Topbar -->
+</div>
+
+
+
+
+<div th:fragment="studentProlileFooter">
+<!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+            <span>Copyright &copy; <a id="aceLink" th:href="@{/}">ACE Inspiration</a>
+
+              <span id="currentYear"></span>
+            </span>
+            </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+</div>

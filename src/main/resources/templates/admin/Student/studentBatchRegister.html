@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>ACE Inspiration</title>
+
+  <!-- Custom fonts for this template-->
+
+  <link th:href="@{/adminStyle/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
+  <link
+          href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link th:href="@{/adminStyle/css/sb-admin-2.min.css}" rel="stylesheet">
+  <link th:href="@{/adminStyle/css/main.css}" rel="stylesheet">
+
+
+  <link rel="stylesheet" th:href="@{/adminStyle/css/reviewstar.css}">
+  <script type='text/javascript' th:src='@{/adminStyle/js/jquery.min.js}'></script>
+  <script type='text/javascript' th:src='@{/adminStyle/js/popper.min.js}'></script>
+<script type="text/javascript">
+function clearSearch() {
+    window.location = "[[@{/admin/studentBatchRegister}]]";
+}</script>
+
+
+</head>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <div th:replace="fragments/AdminHomeSidebar::adminhomesidebar"></div>
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- th replace -->
+        <div th:replace="fragments/AdminHomeHeader::adminhomenavbar"></div>
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0  cardHeader">Student Batch Register</h1>
+
+          </div>
+
+
+
+          <!-- Content Row -->
+
+          <div class="row">
+
+            <div class="card-body">
+              <div class="card-body formBorder" style="background-color: white;">
+
+               
+
+                  <div class="row">
+
+                    <div class="card-body">
+                      <div class="form-inline">
+                      
+
+                        <!-- search -->
+               
+                       <div class="input-group searchButton">
+						<input type="text" class="form-control bg-light border-0 small"
+							id="searchStudentCode" placeholder="Search By Student Code"
+							aria-label="Search" th:value="${stCode}"
+							aria-describedby="basic-addon2">
+						<div class="input-group-append">
+							<button class="btn btn-primary" id="searchButton" type="button">
+								<i class="fas fa-search fa-sm"></i>
+							</button>
+							<div>
+							 <input type="button"  style=" margin-left: 10px;"    value="Clear" class="btn btn-primary" id="btnClear"  onclick="clearSearch()" />
+							 </div>
+							<span style="color: blue; font-size: 20px; font-weight: bold; margin-left: 15px; padding-top: 7px; " th:text="${Message1}"></span>
+										<span style="color: red; font-size: 20px; font-weight: bold; margin-left: 15px; padding-top: 7px;" th:text="${ErrorM}"></span>
+						</div>
+					</div>
+                        <!-- end search                  -->
+
+                      </div>
+                    </div>
+
+                  </div>
+
+
+                  <br>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <!-- table -->
+                      <div class="table-responsive">
+                        <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
+                          <thead>
+                            <tr>
+                              <th>Student Code</th>
+
+                              <th>Student Name</th>
+
+                              <th>Phone</th>
+                            </tr>
+                          </thead>
+
+                          <tbody>
+                            <tr th:each="student: ${studentList}"  th:data-id="${student.id}"
+														th:id="'row-'+${student.id}">
+                            <td class="stId" style="display: none;" th:text="${student.id}"></td>
+									<td  th:text="${student.stid}"></td>
+									<td  class="stName" th:text="${student.name}"></td>
+									<td  th:text="${student.phone}"></td>	
+							</tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+
+			<form action="#" th:action="@{/admin/handleStudentBatch}" th:object="${studentBatchForm}" method="post"
+																id="studentBatchForm">
+					<input type="hidden" class="form-control" th:value="${stId}"
+								id="stNewId">
+						<input type="hidden" class="form-control" th:field="*{studentId}"
+								id="studentId">
+								
+						<input type="hidden" class="form-control" th:field="*{code}"
+								id="stucode">
+							<div class="form-group row">
+                          <label style="font-weight: bold;" for="studentName" class="col-sm-3 col-form-label">Student Name
+                          </label>
+                          <div class="col-sm-8" style="padding-right: 0;">
+                            <input type="text" th:field="*{studentName}" class="form-control" id="studentName"  placeholder="Student Name" readonly>
+                   			  <span th:if="${#fields.hasErrors('studentName')}" th:errors="*{studentName}" style="color: red;"></span>
+                          </div>
+                        </div>
+                         
+                      <div class="form-group row">
+                     
+                        <label style="font-weight: bold;" for="inputBatchName" class="col-sm-3 col-form-label">Batch
+                          Name</label>
+  									
+                        <div class="col-sm-5">
+                          <div class="input-group">
+                            <select class="custom-select" th:field="*{couname}"  id="inputBatchName">
+                              <option value="" th:text="${'Batch Name'}">Batch Name</option>
+                             <option th:each=" course : ${courseName}" th:value="${course.id}" th:text="${course.name}"></option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-sm-3" style="padding-right: 0;">
+                        <input type="text"  class="form-control" th:field="*{batchNo}" id="batchNo" placeholder="Batch No"> 
+                          <!--  <input type="text" class="form-control"
+										th:field="*{batchNo}" id="batchNo" placeholder="Batch Name">-->
+                        </div>
+                       
+                      </div>
+                      <div class="form-group row">
+                      <label  class="col-sm-3 col-form-label">
+                          </label>
+                      <div class="col-sm-8" style="padding-right: 0;">
+                       <span th:if="${#fields.hasErrors('batchNo')}" th:errors="*{batchNo}" style="color: red;" id="bindErr"></span>
+                       <span th:if="${#fields.hasErrors('batchName')}" th:errors="*{batchName}" style="color: red;" id="bindErr"></span> 
+                      <span id="errorMessage"></span>
+                      </div>
+                      </div>
+                      <input type="hidden" class="form-control" th:field="*{batchName}"
+								id="BatchId">
+					 
+                   <!--    <div class="form-group row">
+                       <div  class="col-sm-3"></div>
+                       <div  id="divError" class="col-sm-5"><span id="errorMessage"></span></div>
+                      
+                      </div>--> 
+
+                      <div class="form-group row">
+                        <label style="font-weight: bold;" for="checkBox" class="col-sm-3 col-form-label">Change Batch
+                        </label>
+                        <div class="form-inline col-sm-8" >
+                          <input type="checkbox" th:field="*{status}" th:value="${status}? 'Yes' : 'No' "  id="checkBox"  onclick="EnableDisableTextBox()" >
+                        </div>
+                      </div>
+                      <div class="payment box">
+                        <div class="form-group row">
+                          <label style="font-weight: bold;" for="courseFee" class="col-sm-3 col-form-label">Course Fee
+                          </label>
+                          <div class="col-sm-8" style="padding-right: 0;">
+                          <!--   <input readonly value="500000" type="text" class="form-control" id="courseFee" name="payment"
+                              placeholder="Course Fee">-->
+                              	<input type="text" class="form-control"
+										th:field="*{courseFee}" id="courseFee"
+										placeholder="Course Fee" readonly>
+										 
+                          </div>
+                        </div>
+
+                        <div class="form-group row">
+                          <label style="font-weight: bold;" for="discountType" class="col-sm-3 col-form-label">Discount
+                            Type
+                          </label>
+                          <div class="col-sm-5" >
+                            <div class="input-group">
+                              
+                                <select th:field="*{discountType}"  class="custom-select" 
+                               id="discountType" >
+                                <option value=""> Select Discount Type</option>
+                                  <option th:each=" discountType : ${discountTypes}"
+											th:value="${discountType.id}" th:text="${discountType.discountName}" ></option>
+                                </select>
+                               
+                                </div>
+
+                              </div>
+                              <div class="col-sm-3" style="padding-right: 0;">
+                                
+                                  <input type="text" class="form-control"
+										th:field="*{discountPercent}" id="discountPercent"
+										placeholder="Discount Percent" readonly>
+                              
+                              </div>
+
+                            </div>
+
+                          
+                        
+                        <div class="form-group row">
+                          <label style="font-weight: bold;" for="discountAmount" class="col-sm-3 col-form-label">Discount Amount
+                          </label>
+                          <div class="col-sm-8" style="padding-right: 0;">
+                            <input type="text" th:field="*{discountAmount}" class="form-control" id="discountAmount" readonly value="100,000" name="discountAmount"
+                              placeholder="Discount Amount">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label style="font-weight: bold;" for="actualAmount" class="col-sm-3 col-form-label">Actual
+                            Amount
+                          </label>
+                          <div class="col-sm-8" style="padding-right: 0;">
+                            <input type="text"  class="form-control" th:field="*{actualAmount}" id="actualAmount" readonly value="400,000" name="actualAmount"
+                              placeholder="Actual Amount">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <div class="col-sm-3"></div>
+                          <div class="col-sm-8">
+                            
+                            
+                           <input type="button" class="btn btn-success pull-right"
+														value="Add" id="submitBtn">
+                           
+
+                          </div>
+                        
+                        </div>
+
+                        
+                      </div>
+						
+</form>
+
+                    </div>
+                  </div>
+
+
+
+                  <br>
+
+
+
+
+
+               
+
+
+
+
+
+              </div>
+
+            </div>
+          </div>
+
+
+          <!-- End Row -->
+        </div><!-- End of Page Content -->
+        <!-- /.container-fluid -->
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- th replace -->
+      <div th:replace="fragments/AdminHomeFooter::adminhomefooter"></div>
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div th:replace="fragments/AdminHomeFooter::logoutModel"></div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script th:src="@{/adminStyle/vendor/jquery/jquery.min.js}"></script>
+  <script th:src="@{/adminStyle/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script th:src="@{/adminStyle/vendor/jquery-easing/jquery.easing.min.js}"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script th:src="@{/adminStyle/js/sb-admin-2.min.js}"></script>
+
+  <!-- Page level plugins -->
+  <script th:src="@{/adminStyle/vendor/chart.js/Chart.min.js}"></script>
+
+  <!-- Page level custom scripts -->
+  <script th:src="@{/adminStyle/js/demo/chart-area-demo.js}"></script>
+  <script th:src="@{/adminStyle/js/demo/chart-pie-demo.js}"></script>
+  <!-- Footer Year -->
+  <script th:src="@{/adminStyle/js/currentYear.js}"></script>
+ <script th:src="@{/adminStyle/js/stuBatchRegister.js}"></script>
+</body>
+
+</html>

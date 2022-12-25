@@ -1,0 +1,197 @@
+<div th:fragment="adminhomesidebar">
+	<!-- Sidebar -->
+	<ul
+		class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion navColor"
+		id="accordionSidebar" style="height: 100%">
+
+
+
+		<!-- Nav Item - Dashboard -->
+		<li class="nav-item active"><a class="nav-link"
+			th:href="@{/admin}"> <i class="fas fa-fw fa-tachometer-alt"></i>
+				<span>Dashboard</span></a></li>
+
+		<!-- Nav Item - Pages Collapse Menu -->
+		<!-- Admin link -->
+		<li class="nav-item" sec:authorize="hasAnyRole('Admin','ADMIN')">
+			<a class="nav-link collapsed" href="#" data-toggle="collapse"
+			data-target="#adminLink" aria-expanded="true"
+			aria-controls="adminLink"> <i class="fas fa-user fa-2x text-info"></i>
+				<span>Admin</span>
+		</a>
+			<div id="adminLink" class="collapse"
+				aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+				<div class="bg-white py-2 collapse-inner rounded">
+					<h6 class="collapse-header">Admin Management:</h6>
+					<a class="collapse-item" th:href="@{/admin/role}">Admin's Role</a>
+					<a class="collapse-item" th:href="@{/admin/addAdmin}">Add Admin</a>
+
+				</div>
+			</div>
+
+		</li>
+
+		<!-- Course link -->
+		<li class="nav-item" sec:authorize="hasAnyRole('Course','ADMIN')">
+			<a class="nav-link collapsed" href="#" data-toggle="collapse"
+			data-target="#courseLink" aria-expanded="true"
+			aria-controls="courseLink"> <i
+				class="fas fa-book fa-2x text-gray-400"></i> <span>Course</span>
+		</a>
+			<div id="courseLink" class="collapse"
+				aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+				<div class="bg-white py-2 collapse-inner rounded">
+					<h6 class="collapse-header">Course Management:</h6>
+					<a class="collapse-item" th:href="@{/admin/courseType}">Course
+						Type</a> <a class="collapse-item" th:href="@{/admin/addCourse}">Add
+						Course</a> <a class="collapse-item" th:href="@{/admin/courseMarking}">Course
+						Marking</a> <a class="collapse-item" th:href="@{/admin/grate}">Add
+						Grade</a>
+				</div>
+			</div>
+
+		</li>
+
+
+		<!-- Teacher link -->
+		<li class="nav-item" sec:authorize="hasAnyRole('Teacher','ADMIN')">
+			<a class="nav-link" th:href="@{/admin/teacher}"> <i
+				class="fas fa-user fa-2x text-success"></i> <span>Teacher</span>
+		</a>
+
+		</li>
+
+		<!-- Divider -->
+		<hr class="sidebar-divider">
+
+		<!-- Batch link-->
+		<li class="nav-item" sec:authorize="hasAnyRole('Batch','ADMIN')">
+			<a class="nav-link" th:href="@{/admin/batch}"> <i
+				class="fas fa-users text-info"></i> <span>Batch</span>
+		</a>
+
+		</li>
+
+
+
+		<!-- Student link -->
+		<li class="nav-item" sec:authorize="hasAnyRole('Student','ADMIN')">
+			<a class="nav-link collapsed" href="#" data-toggle="collapse"
+			data-target="#collapseUtilities1" aria-expanded="true"
+			aria-controls="collapseUtilities1"> <i
+				class="fas fa-user fa-2x text-success"></i> <span>Student</span>
+		</a>
+			
+	<div id="collapseUtilities1" class="collapse"
+				aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+				<div class="bg-white py-2 collapse-inner rounded">
+					<h6 class="collapse-header">Student Management:</h6>
+					<a class="collapse-item" th:href="@{/admin/addStudent}">Add
+						Student</a> <a class="collapse-item"
+						th:href="@{/admin/studentDiscount}">Student Discount</a> <a
+						class="collapse-item" th:href="@{/admin/studentBatchRegister}">Student
+						Batch Register</a> <a class="collapse-item"
+						th:href="@{/admin/studentPayment}">Student Payment</a> <a
+						class="collapse-item"
+						th:href="@{/admin/studentList/{name}(name=0)}">Student List</a> <a
+						class="collapse-item" th:href="@{/admin/studentMarking}">Student
+						Marking</a> <a class="collapse-item"
+						th:href="@{/admin/changePassword}">Change Password</a> <a
+						class="collapse-item" th:href="@{/admin/enquiryform}">Enquiry
+						Registration</a>
+
+				</div>
+			</div>
+		</li>
+
+	
+
+
+		<!-- Attendance link -->
+		<li class="nav-item" sec:authorize="hasAnyRole('Attendance','ADMIN')">
+			<a class="nav-link collapsed" href="#" data-toggle="collapse"
+			data-target="#attendance" aria-expanded="true"
+			aria-controls="attendance"> <i
+				class="fas fa-qrcode text-warning"></i> <span>Attendance</span>
+		</a>
+			<div id="attendance" class="collapse"
+				aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+				<div class="bg-white py-2 collapse-inner rounded">
+					<h6 class="collapse-header">Attendance Management:</h6>
+					<a class="collapse-item" th:href="@{/admin/studentAttendanceQr}"><span>Qr
+							Scan</span></a> <a class="collapse-item"
+						th:href="@{/admin/studentAttendance}"><span>Manual</span></a>
+						</a> <a class="collapse-item"
+						th:href="@{/admin/studentAttendanceDetail}"><span>View Detail</span></a>
+				</div>
+			</div>
+		</li>
+
+
+
+
+
+
+		<!-- Divider -->
+		<hr class="sidebar-divider">
+
+		<!-- Information link -->
+
+		<li class="nav-item" sec:authorize="hasAnyRole('Enroll','ADMIN')">
+			<a class="nav-link collapsed" href="#" data-toggle="collapse"
+			data-target="#information" aria-expanded="true"
+			aria-controls="information"> <i
+				class="fas fa-bullhorn text-gray-100"></i> <span>Information</span>
+				 
+         	
+        
+		</a>
+			<div id="information" class="collapse"
+				aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+				<div class="bg-white py-2 collapse-inner rounded">
+					<h6 class="collapse-header">Information Management:</h6>
+					<a class="collapse-item" th:href="@{/admin/enquiryInformation}">Enquiry
+						Information</a> <a class="collapse-item"
+						th:href="@{/admin/comingCourse}">Comming Course</a> <a
+						class="collapse-item" th:href="@{/admin/timeTable}">Timetable</a>
+					<a class="collapse-item" th:href="@{/admin/gallery}">Gallery</a> <a
+						class="collapse-item" th:href="@{/admin/review}">Review</a>
+				</div>
+			</div>
+		</li>
+
+
+
+
+
+		<!-- Report link -->
+		<li class="nav-item" sec:authorize="hasAnyRole('Report','ADMIN')">
+			<a class="nav-link collapsed" href="#" data-toggle="collapse"
+			data-target="#collapseUtilities6" aria-expanded="true"
+			aria-controls="collapseUtilities"> <i
+				class="fas fa-file-export text-gray-100"></i> <span>Report</span>
+		</a>
+			<div id="collapseUtilities6" class="collapse"
+				aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+				<div class="bg-white py-2 collapse-inner rounded">
+					<h6 class="collapse-header">Report Management:</h6>
+					<a class="collapse-item" th:href="@{/admin/studentReport}">Student
+						Report</a> <a class="collapse-item"
+						th:href="@{/admin/studentPaymentReport}">Student Payment
+						Report</a> <a class="collapse-item"
+						th:href="@{/admin/studentAttendanceReport}">Attendance Report</a>
+					<a class="collapse-item" th:href="@{/admin/profitAndLossReport}">Profit
+						and Loss</a> <a class="collapse-item"
+						th:href="@{/admin/enquiryReport}">Enquiry Report</a>
+
+				</div>
+			</div>
+		</li>
+
+		<!-- Sidebar Toggler (Sidebar) -->
+		<div class="text-center d-none d-md-inline">
+			<button class="rounded-circle border-0" id="sidebarToggle"></button>
+		</div>
+	</ul>
+	<!-- End of Sidebar -->
+</div>

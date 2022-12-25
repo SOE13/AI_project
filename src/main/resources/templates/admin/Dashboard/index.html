@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5" >
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>ACE Inspiration</title>
+
+
+
+<!-- Rating Stars -->
+<link th:href="@{/adminStyle/vendor/ratingstar/dist/star-rating.css}"
+	rel="stylesheet" type="text/css">
+<link
+	th:href="@{/adminStyle/vendor/ratingstar/dist/star-rating.min.css}"
+	rel="stylesheet" type="text/css">
+<link th:href="@{/adminStyle/vendor/ratingstar/demo/styles.css}"
+	rel="stylesheet" type="text/css">
+
+<script type='text/javascript'
+	th:src='@{/adminStyle/vendor/ratingstar/dist/star-rating.min.js}'></script>
+<!-- Custom fonts for this template-->
+
+<link th:href="@{/adminStyle/vendor/fontawesome-free/css/all.min.css}"
+	rel="stylesheet" type="text/css">
+<link
+	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+	rel="stylesheet">
+
+<!-- Custom styles for this template-->
+<link th:href="@{/adminStyle/css/sb-admin-2.min.css}" rel="stylesheet">
+<link th:href="@{/adminStyle/css/main.css}" rel="stylesheet">
+
+
+<link rel="stylesheet" th:href="@{/adminStyle/css/reviewstar.css}">
+<script type='text/javascript' th:src='@{/adminStyle/js/jquery.min.js}'></script>
+<script type='text/javascript' th:src='@{/adminStyle/js/popper.min.js}'></script>
+</head>
+
+<body id="page-top">
+
+	<!-- Page Wrapper -->
+	<div id="wrapper">
+
+		<div th:replace="fragments/AdminHomeSidebar::adminhomesidebar"></div>
+		<!-- Content Wrapper -->
+		<div id="content-wrapper" class="d-flex flex-column">
+
+			<!-- Main Content -->
+			<div id="content">
+
+				<!-- th replace -->
+				<div th:replace="fragments/AdminHomeHeader::adminhomenavbar"></div>
+
+				<!-- Begin Page Content -->
+				<div class="container-fluid">
+
+					<!-- Page Heading -->
+					<div
+						class="d-sm-flex align-items-center justify-content-between mb-4">
+						<h1 class="h3 mb-0  cardHeader">Dashboard</h1>
+
+					</div>
+
+					<!-- Content Row -->
+					<div class="row">
+
+						<!-- Earnings Admin Card Example -->
+						<div class="col-xl-3 col-md-6 mb-4">
+							<div class="card border-left-primary shadow h-100 py-2">
+								<div class="card-body">
+									<div class="row no-gutters align-items-center">
+										<div class="col mr-2">
+											<div
+												class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+												<h3>Admin</h3>
+											</div>
+											<div class="h5 mb-0 font-weight-bold text-gray-800">
+												<span th:text="${admin}"></span>
+											</div>
+										</div>
+										<div class="col-auto">
+											<i class="fas fa-user fa-2x text-primary"></i>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Earnings Teacher Card Example -->
+						<div class="col-xl-3 col-md-6 mb-4">
+							<div class="card border-left-success shadow h-100 py-2">
+								<div class="card-body">
+									<div class="row no-gutters align-items-center">
+										<div class="col mr-2">
+											<div
+												class="text-xs font-weight-bold text-success text-uppercase mb-1">
+												<h3>Teacher</h3>
+											</div>
+											<div class="h5 mb-0 font-weight-bold text-gray-800">
+												<span th:text="${teacher}"></span>
+											</div>
+										</div>
+										<div class="col-auto">
+											<i class="fas fa-user fa-2x text-success"></i>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Earnings Student Card Example -->
+						<div class="col-xl-3 col-md-6 mb-4">
+							<div class="card border-left-info shadow h-100 py-2">
+								<div class="card-body">
+									<div class="row no-gutters align-items-center">
+										<div class="col mr-2">
+											<div
+												class="text-xs font-weight-bold text-info text-uppercase mb-1">
+												<h3>Student</h3>
+											</div>
+											<div class="row no-gutters align-items-center">
+												<div class="col-auto">
+													<div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
+														<span th:text="${student}"></span>
+													</div>
+												</div>
+
+											</div>
+										</div>
+										<div class="col-auto">
+											<i class="fas fa-user fa-2x text-info"></i>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Pending Course Card Example -->
+						<div class="col-xl-3 col-md-6 mb-4">
+							<div class="card border-left-warning shadow h-100 py-2">
+								<div class="card-body">
+									<div class="row no-gutters align-items-center">
+										<div class="col mr-2">
+											<div
+												class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+												<h3>Course</h3>
+											</div>
+											<div class="h5 mb-0 font-weight-bold text-gray-800">
+												<span th:text="${course}"></span>
+											</div>
+										</div>
+										<div class="col-auto">
+											<i class="fas fa-book fa-2x text-warning"></i>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Content Row -->
+
+					<!-- Content Row -->
+
+					<div class="row">
+						<div class="card-body">
+
+							<div class="card-body formBorder"
+								style="background-color: white;">
+
+								<div class="table-responsive">
+									<table class="table table-hover" id="dataTable" width="100%"
+										cellspacing="0">
+										<thead>
+											<tr>
+												<th>Batch Name</th>
+												<th>Teacher Name</th>
+												<th>Rating</th>
+
+											</tr>
+										</thead>
+
+										<tbody>
+
+											<tr th:each="rate :${rateList}" class="rateRow">
+												<td th:text="${rate.batchName}"></td>
+												<td th:text="${rate.teacherName}"></td>
+
+												<td><select id="glsr-ltr" class="star-rating" disabled="disabled">
+														<option value="5"
+															th:selected="${rate.totalRating==5}">5</option>
+														<option value="4"
+															th:selected="${rate.totalRating==4}">4</option>
+														<option value="3"
+															th:selected="${rate.totalRating==3}">3</option>
+														<option value="2"
+															th:selected="${rate.totalRating==2}">2</option>
+														<option value="1" 
+														th:selected="${rate.totalRating==1}">1</option>
+														
+												</select></td>
+											</tr>
+
+
+
+
+
+
+										</tbody>
+									</table>
+								</div>
+
+								<!-- pagination -->
+								<!-- <div class="row">
+									<div class="col-sm-12 col-md-5"></div>
+									<div class="col-sm-12 col-md-7">
+										<ul class="pagination justify-content-end">
+											<li class="paginate_button page-item previous disabled"
+												id="dataTable_previous"><a href="#"
+												aria-controls="dataTable" data-dt-idx="0" tabindex="0"
+												class="page-link">Previous</a></li>
+											<li class="paginate_button page-item active"><a href="#"
+												aria-controls="dataTable" data-dt-idx="1" tabindex="0"
+												class="page-link">1</a></li>
+											<li class="paginate_button page-item "><a href="#"
+												aria-controls="dataTable" data-dt-idx="2" tabindex="0"
+												class="page-link">2</a></li>
+											<li class="paginate_button page-item "><a href="#"
+												aria-controls="dataTable" data-dt-idx="3" tabindex="0"
+												class="page-link">3</a></li>
+											<li class="paginate_button page-item "><a href="#"
+												aria-controls="dataTable" data-dt-idx="4" tabindex="0"
+												class="page-link">4</a></li>
+											<li class="paginate_button page-item "><a href="#"
+												aria-controls="dataTable" data-dt-idx="5" tabindex="0"
+												class="page-link">5</a></li>
+											<li class="paginate_button page-item "><a href="#"
+												aria-controls="dataTable" data-dt-idx="6" tabindex="0"
+												class="page-link">6</a></li>
+											<li class="paginate_button page-item next"
+												id="dataTable_next"><a href="#"
+												aria-controls="dataTable" data-dt-idx="7" tabindex="0"
+												class="page-link">Next</a></li>
+										</ul>
+									</div>
+								</div> -->
+
+
+							</div>
+
+
+
+
+
+
+						</div>
+
+
+
+					</div>
+				</div>
+				<!-- End of Page Content -->
+				<!-- /.container-fluid -->
+			</div>
+			<!-- End of Main Content -->
+			<!-- th replace -->
+			<div th:replace="fragments/AdminHomeFooter::adminhomefooter"></div>
+
+
+		</div>
+		<!-- End of Content Wrapper -->
+
+	</div>
+	<!-- End of Page Wrapper -->
+
+	<!-- Scroll to Top Button-->
+	<a class="scroll-to-top rounded" href="#page-top"> <i
+		class="fas fa-angle-up"></i>
+	</a>
+
+	<!-- Logout Modal-->
+	<div th:replace="fragments/AdminHomeFooter::logoutModel"></div>
+	
+
+	</script>
+	<!-- Bootstrap core JavaScript-->
+	<script th:src="@{/adminStyle/vendor/jquery/jquery.min.js}"></script>
+	<script
+		th:src="@{/adminStyle/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+	<!-- Core plugin JavaScript-->
+	<script
+		th:src="@{/adminStyle/vendor/jquery-easing/jquery.easing.min.js}"></script>
+
+	<!-- Custom scripts for all pages-->
+	<script th:src="@{/adminStyle/js/sb-admin-2.min.js}"></script>
+
+	<!-- Page level plugins -->
+	<script th:src="@{/adminStyle/vendor/chart.js/Chart.min.js}"></script>
+
+	<!-- Page level custom scripts -->
+	<script th:src="@{/adminStyle/js/demo/chart-area-demo.js}"></script>
+	<script th:src="@{/adminStyle/js/demo/chart-pie-demo.js}"></script>
+	<!-- Footer Year -->
+	<script th:src="@{/adminStyle/js/currentYear.js}"></script>
+	
+	<script src="/AI/adminStyle/vendor/ratingstar/src/star-rating.js?ver=3.4.0"></script>
+	<script>
+		var destroyed = false;
+		var starratings = new StarRating('.star-rating', {
+			onClick : function(el) {
+
+				console.log('Selected: ' + el[el.selectedIndex].text);
+
+			},
+		});
+	</script>
+
+	
+</body>
+</html>

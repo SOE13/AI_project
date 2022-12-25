@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>ACE Inspiration</title>
+
+<!-- Custom fonts for this template-->
+<link th:href="@{/adminStyle/vendor/fontawesome-free/css/all.min.css}"
+	rel="stylesheet" type="text/css">
+<link
+	th:href="@{https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i}"
+	rel="stylesheet">
+
+<!-- Custom styles for this template-->
+<link th:href="@{/adminStyle/css/sb-admin-2.min.css}" rel="stylesheet">
+<link media="screen" th:href="@{/adminStyle/css/main.css}"
+	rel="stylesheet">
+<link media="print" th:href="@{/adminStyle/css/print.css}"
+	rel="stylesheet">
+
+
+
+<link rel="stylesheet" th:href="@{/adminStyle/css/reviewstar.css}">
+
+<script type='text/javascript' th:src='@{/adminStyle/js/jquery.min.js}'></script>
+<script type='text/javascript' th:src='@{/adminStyle/js/popper.min.js}'></script>
+
+
+</head>
+
+<body id="page-top">
+
+
+	<!-- Page Wrapper -->
+	<div id="wrapper">
+
+		<div th:replace="fragments/AdminHomeSidebar::adminhomesidebar"></div>
+
+		<!-- Content Wrapper -->
+		<div id="content-wrapper" class="d-flex flex-column">
+
+			<!-- Main Content -->
+			<div id="content">
+
+				<!-- th replace -->
+				<div th:replace="fragments/AdminHomeHeader::adminhomenavbar"></div>
+
+				<!-- Begin Page Content -->
+				<div class="container-fluid">
+
+					<!-- Page Heading -->
+					<div
+						class="d-sm-flex align-items-center justify-content-between mb-4">
+						<h1 class="h3 mb-0 cardHeader">Add Student</h1>
+
+					</div>
+
+
+
+					<!-- Content Row -->
+
+					<div class="row">
+
+						<div class="card-body">
+
+
+							<div class="card-body formBorder"
+								style="background-color: white;">
+								<form th:action="@{/admin/addStudent}" method="post"
+									enctype="multipart/form-data" th:object="${addstudent}">
+									<div class="row">
+										<div class="col-md-3"></div>
+										<div class="col-md-6">
+
+
+
+											<div class="form-group row">
+												<label style="font-weight: bold;" for="inputStudentID"
+													class="col-sm-4 col-form-label"><b>Student ID</b></label>
+												<div class="col-sm-8">
+													<input type="text" class="form-control" id="inputStudentID"
+														th:field="*{stid}" readonly>
+												</div>
+											</div>
+
+											<br>
+
+
+											<div class="form-group row">
+												<label style="font-weight: bold;" for="inputStudentName"
+													class="col-sm-4 col-form-label"><b>Name</b><span
+													style="color: red;">*</span></label>
+												<div class="col-sm-8">
+													<input type="text" class="form-control" th:field="*{name}"
+														id="inputStudentName" placeholder="Name">
+													<p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+														style="color: red;"></p>
+												</div>
+											</div>
+											<div class="form-group row">
+												<label style="font-weight: bold;"
+													for="inputStudentFatherName"
+													class="col-sm-4 col-form-label"><b> Father Name</b><span
+													style="color: red;">*</span> </label>
+												<div class="col-sm-8">
+													<input type="text" class="form-control"
+														th:field="*{father}" id="inputStudentFatherName"
+														placeholder="Father Name">
+													<p th:if="${#fields.hasErrors('father')}"
+														th:errors="*{father}" style="color: red;"></p>
+												</div>
+											</div>
+											<div class="form-group row">
+												<label style="font-weight: bold;"
+													for="inputStudentNRCNumber" class="col-sm-4 col-form-label"><b>NRC</b></label>
+												<div class="col-sm-8">
+													<input type="text" class="form-control" th:field="*{NRC}"
+														id="inputStudentNRCNumber" placeholder="NRC Number">
+													<p th:if="${#fields.hasErrors('NRC')}" th:errors="*{NRC}"
+														style="color: red;"></p>
+												</div>
+											</div>
+
+											<div class="form-group row">
+												<label style="font-weight: bold;"
+													for="inputStudentDateofBirth"
+													class="col-sm-4 col-form-label"><b>Date of
+														Birth</b><span style="color: red;">*</span></label>
+												<div class="col-sm-8">
+													<input type="date" class="form-control" th:field="*{DOB}"
+														id="inputStudentDateofBirth">
+													<p th:if="${#fields.hasErrors('DOB')}" th:errors="*{DOB}"
+														style="color: red;"></p>
+												</div>
+											</div>
+
+											<div class="form-group row">
+												<label style="font-weight: bold;" for="inputGender"
+													class="col-sm-4 col-form-label"><b>Gender</b><span
+													style="color: red;">*</span></label>
+												<div class="col-sm-8">
+													<input type="radio" checked="checked" id="inputGender"
+														name="gender" th:field="*{gender}" value="Male">Male
+													<input type="radio" id="inputGender" name="gender"
+														th:field="*{gender}" value="Female">Female
+													<p th:if="${#fields.hasErrors('gender')}"
+														th:errors="*{gender}" style="color: red;"></p>
+												</div>
+											</div>
+
+											<div class="form-group row">
+												<label style="font-weight: bold;" for="inputStudentPhone"
+													class="col-sm-4 col-form-label"><b>Phone</b><span
+													style="color: red;">*</span></label>
+												<div class="col-sm-8">
+													<input type="text" class="form-control" th:field="*{phone}"
+														id="inputStudentPhone" placeholder="Phone">
+													<p th:if="${#fields.hasErrors('phone')}"
+														th:errors="*{phone}" style="color: red;"></p>
+												</div>
+											</div>
+
+											<div class="form-group row">
+												<label style="font-weight: bold;" for="inputStudentEmail"
+													class="col-sm-4 col-form-label"><b>Email</b></label>
+												<div class="col-sm-8">
+													<input type="email" class="form-control"
+														th:field="*{email}" id="inputStudentEmail"
+														placeholder="Email">
+													<p th:if="${#fields.hasErrors('email')}"
+														th:errors="*{email}" style="color: red;"></p>
+												</div>
+											</div>
+											<div class="form-group row">
+												<label style="font-weight: bold;" for="inputStudentPassword"
+													class="col-sm-4 col-form-label"><b>Password</b></label>
+												<div class="col-sm-8">
+													<input type="password" class="form-control"
+														th:field="*{password}" id="inputStudentPassword"
+														placeholder="Password">
+													<p th:if="${#fields.hasErrors('password')}"
+														th:errors="*{password}" style="color: red;"></p>
+														<p th:text="${perror}" style="color: red;"></p>
+												</div>
+											</div>
+											<div class="form-group row">
+												<label style="font-weight: bold;"
+													for="inputStudentConfirmPassword"
+													class="col-sm-4 col-form-label"><b>Confirm
+														Password</b></label>
+												<div class="col-sm-8">
+													<input type="password" class="form-control"
+														th:field="*{cpassword}" id="inputStudentConfirmPassword"
+														placeholder="Confirm Password">
+													<p th:text="${error}" style="color: red;"></p>
+												</div>
+											</div>
+
+											<div class="form-group row">
+												<label style="font-weight: bold;" for="inputRegisterDate"
+													class="col-sm-4 col-form-label"><b>Register
+														Date</b></label>
+												<div class="col-sm-8">
+													<input type="date" class="form-control" th:field="*{rdate}"
+														id="inputRegisterDate" placeholder="Register Date">
+													<p th:if="${#fields.hasErrors('rdate')}"
+														th:errors="*{rdate}" style="color: red;"></p>
+												</div>
+											</div>
+											<div class="form-group row">
+												<label style="font-weight: bold;" for="inputStudentAddress"
+													class="col-sm-4 col-form-label"><b>Address</b></label>
+												<div class="col-sm-8">
+													<input type="text" class="form-control"
+														th:field="*{address}" id="inputStudentAddress"
+														placeholder="Address">
+													<p th:if="${#fields.hasErrors('address')}"
+														th:errors="*{address}" style="color: red;"></p>
+												</div>
+											</div>
+											<div class="form-group row">
+												<label style="font-weight: bold;" for="inputStudentKnowFrom"
+													class="col-sm-4 col-form-label"><b>Known From</b><span
+													style="color: red;">*</span></label>
+												<div class="col-sm-8">
+													<div class="input-group">
+														<select th:field="*{knownfrom}" class="custom-select"
+															id="inputStudentKnowFrom">
+															<option value="Friends">Friends</option>
+															<option value="Websites">Websites</option>
+															<option value="Facebook">Facebook</option>
+															<option value="Pamphlet">Pamphlet</option>
+															<option value="Other">Other</option>
+														</select>
+
+													</div>
+													<p th:if="${#fields.hasErrors('knownfrom')}"
+														th:errors="*{knownfrom}" style="color: red;"></p>
+												</div>
+											</div>
+
+											<div class="form-group row">
+												<label style="font-weight: bold;" for="inputEducation"
+													class="col-sm-4 col-form-label"><b>Education</b></label>
+													
+													<div class="col-sm-8">
+													<input type="text" class="form-control" th:field="*{edu}"
+														id="inputEducation" placeholder="Education">
+													<p th:if="${#fields.hasErrors('edu')}" th:errors="*{edu}"
+														style="color: red;"></p>
+												</div>
+													
+												<!-- <div class="col-sm-8">
+													<select class="custom-select" id="teacherQua" th:field="*{edu}">
+
+														<option value="BSc">BSc</option>
+														<option value="BA">BA</option>
+														<option value="BcSc">BcSc</option>
+														<option value="MSc">MSc</option>
+														<option value="Other">Other</option>
+													</select>
+													
+												</div> -->
+											</div>
+
+											<div class="form-group row">
+												<label style="font-weight: bold;"
+													for="inputOtherQualification"
+													class="col-sm-4 col-form-label"><b>Other
+														Qualification</b></label>
+												<div class="col-sm-8">
+													<input type="text" class="form-control"
+														id="inputOtherQualification" th:field="*{other}"
+														placeholder="Other Qualification">
+													<p th:if="${#fields.hasErrors('other')}"
+														th:errors="*{other}" style="color: red;"></p>
+												</div>
+											</div>
+
+											<div class="from-group row">
+												<label style="font-weight: bold;" for="inputStudentPhoto"
+													class="col-sm-4 col-form-label"><b>Photo</b> </label>
+												<div class="col-sm-8">
+													<input id="inputStudentPhoto"  type="file" name="f" />
+												</div>
+
+											</div>
+											<br>
+
+											<div class="form-group row">
+												<label class="col-sm-4 col-form-label">&nbsp;</label>
+												<div class="col-sm-8">
+													<input type="submit" class="btn btn-info" value="Add">
+												</div>
+											</div>
+
+
+
+										</div>
+
+									</div>
+								</form>
+
+
+
+
+							</div>
+
+
+
+
+
+						</div>
+
+					</div>
+					<!-- /.container-fluid -->
+
+				</div>
+
+				<!-- End of Main Content -->
+
+				<!-- th replace -->
+				<div th:replace="fragments/AdminHomeFooter::adminhomefooter"></div>
+
+
+				<!-- End of Content Wrapper -->
+			</div>
+
+		</div>
+		<!-- End of Page Wrapper -->
+
+		<!-- Scroll to Top Button-->
+		<a class="scroll-to-top rounded" href="#page-top"> <i
+			class="fas fa-angle-up"></i>
+		</a>
+
+		<!-- Logout Modal-->
+		<div th:replace="fragments/AdminHomeFooter::logoutModel"></div>
+
+		<!-- Bootstrap core JavaScript-->
+		<script th:src="@{/adminStyle/vendor/jquery/jquery.min.js}"></script>
+		<script
+			th:src="@{/adminStyle/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+		<!-- Core plugin JavaScript-->
+		<script
+			th:src="@{/adminStyle/vendor/jquery-easing/jquery.easing.min.js}"></script>
+
+		<!-- Custom scripts for all pages-->
+		<script th:src="@{/adminStyle/js/sb-admin-2.min.js}"></script>
+
+		<!-- Page level plugins -->
+		<script th:src="@{/adminStyle/vendor/chart.js/Chart.min.js}"></script>
+
+		<!-- Page level custom scripts -->
+		<script th:src="@{/adminStyle/js/demo/chart-area-demo.js}"></script>
+		<script th:src="@{/adminStyle/js/demo/chart-pie-demo.js}"></script>
+		<!-- Footer Year -->
+		<script th:src="@{/adminStyle/js/currentYear.js}"></script>
+
+		<script th:src="@{/adminStyle/js/bootstrap-fileselect.js}"></script>
+		<script>
+			$('#inputStudentPhoto').fileselect();
+		</script>
+
+		<script>
+			function Delete() {
+				var txt;
+				if (confirm("Are you confirm to Add?")) {
+					txt = "OK";
+				} else {
+					txt = "Cancel";
+				}
+				document.getElementById("delete").innerHTML = txt;
+
+			}
+		</script>
+</body>
+
+</html>

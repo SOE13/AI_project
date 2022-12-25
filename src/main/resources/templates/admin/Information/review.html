@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>ACE Inspiration</title>
+
+  <!-- Custom fonts for this template-->
+
+  <link th:href="@{/adminStyle/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
+  <link
+          href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link th:href="@{/adminStyle/css/sb-admin-2.min.css}" rel="stylesheet">
+  <link th:href="@{/adminStyle/css/main.css}" rel="stylesheet">
+
+
+  <link rel="stylesheet" th:href="@{/adminStyle/css/reviewstar.css}">
+  <script type='text/javascript' th:src='@{/adminStyle/js/jquery.min.js}'></script>
+  <script type='text/javascript' th:src='@{/adminStyle/js/popper.min.js}'></script>
+
+
+
+</head>
+
+<body id="page-top">
+
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <div th:replace="fragments/AdminHomeSidebar::adminhomesidebar"></div>
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- th replace -->
+        <div th:replace="fragments/AdminHomeHeader::adminhomenavbar"></div>
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 cardHeader">Review</h1>
+
+          </div>
+
+
+
+          <!-- Content Row -->
+
+          <div class="row">
+
+            <div class="card-body">
+              <div class="card-body" style="background-color: white;">
+
+
+
+
+
+
+
+<form th:object="${review}"  method="post" th:action="@{/admin/addReview}" enctype="multipart/form-data">
+                <div class="row">
+                  <div class="col-md-3"></div>
+                  <div class="col-md-6">
+                    <div class="from-group row">
+                      <label style="font-weight: bold;" for="inputPhoto" class="col-sm-4 col-form-label">Photo
+                      </label>
+                      <div class="col-sm-8">
+                        <input id="inputPhoto" type="file" name="f" required="required" accept="image/*"/>
+
+
+                      </div>
+
+                    </div>
+                    <br>
+ 
+                    <div class="form-group row">
+                      <label style="font-weight: bold;" for="inputDate" class="col-sm-4 col-form-label">Name
+                      </label>
+                      <div class="col-sm-8">
+                        <input th:field="*{name}" type="text" class="form-control" id="inputDate" placeholder="Name" >
+                        <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}" style="color:red"></p>
+                      </div>
+                    </div>
+                    
+                    
+                    <div class="form-group row">
+												<label style="font-weight: bold;" for="inputReviewDetail"
+													class="col-sm-4 col-form-label">Review Detail</label>
+												<div class="col-sm-8">
+													<textarea class="form-control" name="reviewDetail"
+														th:field="*{detail}" placeholder="Review Detail"></textarea>
+													<p th:if="${#fields.hasErrors('detail')}"
+														th:errors="*{detail}" style="color: red"></p>
+												</div>
+											</div>
+
+
+                    <div class="form-group row">
+                      <label class="col-sm-4 col-form-label">&nbsp;</label>
+                      <div class="col-sm-8">
+                        <input class="btn btn-success" type="submit" value="Add"/>
+                        
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="col-md-3"></div>
+                </div>
+</form>
+
+
+
+               <div class="row">
+                  <div class="col-md-2"></div>
+                  <div class="col-md-8">
+                    <div class="table-responsive">
+                      <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                          <div class="row">
+                            <div class="col-md-3"></div>
+                            <div class="col-md-6">
+                              <tr>
+                                <th>Photo</th>
+                                <th>Name</th>
+                                
+                                <th colspan="2" class="text-center">Action</th>
+                              </tr>
+                            </div>
+                            <div class="col-md-3"></div>
+                          </div>
+
+                        </thead>
+
+                        <tbody>
+                          <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-8">
+                              <tr th:each="lis: ${list}">
+                                <td><img alt="comming soon photo" th:src="@{${lis.img}}" style="width:60px;"></td>
+                                
+                                <td th:text="${lis.name}">Java</td>
+                                
+                                
+                                
+                                <td>
+                                  <div class="row ">
+                                   
+                                    <div class="col-md-6">
+                                      <a th:href="@{/admin/reviewEditView/{id}(id=${lis.id})}" class="btn btn-block btn-info">
+                                        Edit</a>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div data-toggle="modal" data-target="#deleteModal"
+																					class="btn btn-block btn-danger"
+																					th:onclick="del([[${lis.id}]])"> Delete</div>
+                                    </div>
+                                  </div>
+                                </td>
+                              </tr>
+
+
+                            </div>
+                            <div class="col-md-3"></div>
+                          </div>
+
+                        </tbody>
+                      </table>
+                    </div>
+
+
+                  </div>
+                  <div class="col-md-2"></div>
+                </div>
+
+
+              </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          </div>
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+
+
+      <!-- th replace -->
+      <div th:replace="fragments/AdminHomeFooter::adminhomefooter"></div>
+    </div>
+  </div>
+  <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+	<!-- Delete Modal-->
+	<div th:replace="fragments/AdminHomeFooter::deleteModel"></div>
+  <!-- Logout Modal-->
+  <div th:replace="fragments/AdminHomeFooter::logoutModel"></div>
+
+
+  <!-- Bootstrap core JavaScript-->
+  <script th:src="@{/adminStyle/vendor/jquery/jquery.min.js}"></script>
+  <script th:src="@{/adminStyle/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script th:src="@{/adminStyle/vendor/jquery-easing/jquery.easing.min.js}"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script th:src="@{/adminStyle/js/sb-admin-2.min.js}"></script>
+
+  <!-- Page level plugins -->
+  <script th:src="@{/adminStyle/vendor/chart.js/Chart.min.js}"></script>
+
+  <!-- Page level custom scripts -->
+  <script th:src="@{/adminStyle/js/demo/chart-area-demo.js}"></script>
+  <script th:src="@{/adminStyle/js/demo/chart-pie-demo.js}"></script>
+  <!-- Footer Year -->
+  <script th:src="@{/adminStyle/js/currentYear.js}"></script>
+<script th:src="@{/adminStyle/js/bootstrap-fileselect.js}"></script>
+<script>
+  $('#inputPhoto').fileselect();
+  let delId;
+	function del(id) {
+		delId=id;
+	}
+	function confirmDel(){
+		window.location.href = "/admin/deleteReview/"+delId; 
+	}
+</script>
+</body>
+
+</html>

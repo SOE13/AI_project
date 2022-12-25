@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5" >
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+</head>
+<body>
+<div th:fragment="adminhomenavbar">
+	<!-- Topbar -->
+	<nav
+		class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+		<!-- Sidebar Toggle (Topbar) -->
+		<button id="sidebarToggleTop"
+			class="btn btn-link d-md-none rounded-circle mr-3">
+			<i class="fa fa-bars"></i>
+		</button>
+
+
+
+		<!-- Topbar Navbar -->
+		<ul class="navbar-nav ml-auto">
+
+
+			
+			<li class="nav-item ">
+				<div class="text-center col-xl-6" style="margin-top: 15px;">
+					<img th:src="@{/adminStyle/img/ai.PNG}" style="height: 45px;width:550px; " class="col-12"
+					
+					
+					/>
+				</div>
+			</li>
+			
+
+			
+
+
+
+
+
+			<!-- Nav Item - User Information -->
+			<li class="nav-item dropdown no-arrow"><a
+				class="nav-link dropdown-toggle" href="#" id="userDropdown"
+				role="button" data-toggle="dropdown" aria-haspopup="true"
+				aria-expanded="false"> <span
+					class="mr-2 d-none d-lg-inline text-gray-800 small">
+						<h5 class="cardHeader">Hello</h5>
+				</span> <span>
+						<h5 class="cardHeader">
+							Admin <i class="fas fa-angle-down"></i>
+						</h5>
+				</span>
+			</a> <!-- Dropdown - User Information -->
+				<div
+					class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+					aria-labelledby="userDropdown">
+					<a th:href="@{/profile}" class="dropdown-item"
+						href="editProfile.html"> <i
+						class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile Edit
+					</a>
+
+					<div class="dropdown-divider"></div>
+					<button class="dropdown-item" data-toggle="modal" data-target="#logoutModal"><i 
+					class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Logout</button>
+				</div></li>
+
+		</ul>
+
+	</nav>
+	<!-- End of Topbar -->
+</div>
+</body>
+</html>

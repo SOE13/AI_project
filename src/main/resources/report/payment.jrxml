@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="payment" pageWidth="2380" pageHeight="1000" columnWidth="2340" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d54dcc62-6af5-44e3-ab5e-afcc0b8c3f15">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<parameter name="SampleReportParameter" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="studentId" class="java.lang.String"/>
+	<field name="studentName" class="java.lang.String"/>
+	<field name="batchName" class="java.lang.String"/>
+	<field name="trainingFee" class="java.lang.Double"/>
+	<field name="firstAmount" class="java.lang.Double"/>
+	<field name="remainFee" class="java.lang.Double"/>
+	<field name="startend" class="java.lang.String"/>
+	<field name="duration" class="java.lang.String"/>
+	<field name="discount" class="java.lang.Double"/>
+	<field name="afterDis" class="java.lang.Double"/>
+	<field name="firstDate" class="java.lang.String"/>
+	<field name="firstVrNo" class="java.lang.String"/>
+	<field name="remark" class="java.lang.String"/>
+	<field name="secondDate" class="java.lang.String"/>
+	<field name="thirdDate" class="java.lang.String"/>
+	<field name="fourthDate" class="java.lang.String"/>
+	<field name="fifthDate" class="java.lang.String"/>
+	<field name="secondVrNo" class="java.lang.String"/>
+	<field name="thirdVrNo" class="java.lang.String"/>
+	<field name="fourthVrNo" class="java.lang.String"/>
+	<field name="fifthVrNo" class="java.lang.String"/>
+	<field name="secondAmount" class="java.lang.Double"/>
+	<field name="thirdAmount" class="java.lang.Double"/>
+	<field name="fourthAmount" class="java.lang.Double"/>
+	<field name="fifthAmount" class="java.lang.Double"/>
+	<field name="total" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="53">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<staticText>
+				<reportElement x="-20" y="-13" width="2281" height="30" uuid="d31b9542-ec06-44df-8403-eddd5519b1a0"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ACE Inspiration]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-20" y="17" width="2281" height="30" uuid="650c0fce-cbaa-474d-af95-9a483e185e6b"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Professional Development Center]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="44">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<staticText>
+				<reportElement positionType="Float" x="72" y="0" width="116" height="30" uuid="ec024594-26df-405e-a0c6-73955adb13dd">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="188" y="0" width="71" height="30" uuid="17debe2f-723b-40ec-918b-546525df0d81"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Batch Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="474" y="0" width="90" height="30" uuid="b3027396-0b4b-4333-9e0e-0a66668d32ce"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Training Fees]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="2031" y="0" width="80" height="30" uuid="8643aa8a-55c6-4862-9c2e-840dc91e6dd1"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="2191" y="0" width="70" height="30" uuid="e01b3f15-a00e-4068-98f0-019342512435"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Remark]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="259" y="0" width="155" height="30" uuid="4dfd1673-6244-4d29-b852-983d7bb0353f"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Start Date - End Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="414" y="0" width="60" height="30" uuid="715dd1f6-4576-4ea8-b226-750eb5abc91d"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Duration]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="564" y="0" width="80" height="30" uuid="c6716c2e-a288-4c6e-8972-564014db02bd"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Discount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="644" y="0" width="82" height="30" uuid="7ce82de4-cd34-4335-a6fd-246d76c4c84c">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[After (Discount)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="2111" y="0" width="80" height="30" uuid="426ffa3a-eeb7-4c52-9e76-89175fd6a14f"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Remain Balance]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="726" y="0" width="86" height="30" uuid="df130d7f-41c1-4900-9ba8-2d2e263f9edf">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[First Installment Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="812" y="0" width="86" height="30" uuid="83af7332-bd87-40d3-859c-d9145ce8c869">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[First Installment VrNo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="898" y="0" width="86" height="30" uuid="13c6c5c8-32f7-42c2-96d2-8d3ebe1737a7">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[First Installment Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="984" y="0" width="91" height="30" uuid="252f54c2-90ed-4226-aa75-49703fe96db0">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Second Installment Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="1075" y="0" width="91" height="30" uuid="609f2d79-7c3e-49eb-8a9c-913fe76f0c0e">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Second Installment VrNo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="1166" y="0" width="91" height="30" uuid="d21bd1d2-a4fe-49ce-9499-4f531f23927b">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Second Installment Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="1343" y="0" width="86" height="30" uuid="f331ba12-58d3-47f3-860c-b5b4408cba44">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Third Installment VrNo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="1687" y="0" width="86" height="30" uuid="bf8bb3b1-b0d6-4f5a-bfec-bd79b48fb3c6">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fourth Installment Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="1515" y="0" width="86" height="30" uuid="8b1e3b65-e515-49c5-b8a4-7cc1dc50f344"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fourth Installment Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="1257" y="0" width="86" height="30" uuid="626b71e4-8155-4f70-8bd5-26f491edb3ff"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Third Installment Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="1429" y="0" width="86" height="30" uuid="a0174578-5f0d-42f0-a0b1-e718dc59db86">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Third Installment Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="1601" y="0" width="86" height="30" uuid="7d5d9ee6-d205-413c-8cab-b399c80ec77b">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fourth Installment VrNo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="1859" y="0" width="86" height="30" uuid="9d93d8f8-61f8-46aa-b715-7af8931ad6f8">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fifth Installment VrNo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="1773" y="0" width="86" height="30" uuid="c0373c71-fd24-4570-9ff5-19e1d10b19f5">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fifth Installment Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="1945" y="0" width="86" height="30" uuid="3acccf52-c5a8-4293-b5bd-5809030ab54e"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fifth Installment Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="13" y="0" width="59" height="30" uuid="53c6ed48-a579-426c-bcf8-bc752a769cf4">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Student ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-20" y="0" width="33" height="30" isRemoveLineWhenBlank="true" uuid="b80f4ae6-ee54-4af1-80f9-81f20f573e96"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[No]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30">
+			<textField isBlankWhenNull="true">
+				<reportElement x="13" y="-14" width="59" height="30" uuid="97c40cae-fd89-4df5-8c2c-253d6720a98a">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{studentId}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="72" y="-14" width="116" height="30" uuid="b7dba67c-9937-4f7e-81da-669059bbe077"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{studentName}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="188" y="-14" width="71" height="30" uuid="322929fd-4521-4083-9e16-30fa861f82db"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{batchName}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="474" y="-14" width="90" height="30" uuid="005e28f3-299f-4a86-9bac-5af471f93351"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{trainingFee}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="2031" y="-14" width="80" height="30" uuid="54fa759a-2970-4676-95b8-dd92a7a99758"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="2191" y="-14" width="70" height="30" uuid="955f3909-2303-4978-af82-4c3638d8a894"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{remark}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="259" y="-14" width="155" height="30" uuid="28b0ca3c-cec0-4fd7-8e2e-016d6f2d5757"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{startend}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="414" y="-14" width="60" height="30" uuid="e8189570-124f-4a16-823c-22788e496b19"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{duration}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="564" y="-14" width="80" height="30" uuid="60d019d4-f825-4908-9925-e6217be9bf2f"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{discount}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="644" y="-14" width="82" height="30" uuid="2be65b58-9dde-45b1-a455-a27ede7dca6a"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{afterDis}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="2111" y="-14" width="80" height="30" uuid="47756439-1625-400d-be6c-055b7b8ddea1"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{remainFee}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="726" y="-14" width="86" height="30" uuid="bd58ac8b-29f8-472e-a535-ce5a7c838d57">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{firstDate}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="812" y="-14" width="86" height="30" uuid="f4311980-91a8-4249-a7dd-bd51df2650b4">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{firstVrNo}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="898" y="-14" width="86" height="30" uuid="dac684ab-6ccc-4f67-9298-f9de83bd95d1">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{firstAmount}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="984" y="-14" width="91" height="30" uuid="1c4a2a53-9afd-4335-acb0-467d91014cc0">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{secondDate}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="1075" y="-14" width="91" height="30" uuid="b55cda84-daef-4dbc-b9b9-bff272b47719">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{secondVrNo}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="1166" y="-14" width="91" height="30" uuid="ad9726df-d4c1-4207-b07d-12c19b92af32">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{secondAmount}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="1601" y="-14" width="86" height="30" uuid="12f0fcaa-1975-41a4-a57a-755976eb9d48">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{fourthVrNo}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="1429" y="-14" width="86" height="30" uuid="e99f1f11-73f8-4187-8d7b-ceaecc872eeb">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{thirdAmount}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="1343" y="-14" width="86" height="30" uuid="76d065a5-69ce-4c99-804c-8ad02eacee57">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{thirdVrNo}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="1257" y="-14" width="86" height="30" uuid="eedd5ddb-2f24-4c7c-9033-40ca9490a6c1">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{thirdDate}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="1515" y="-14" width="86" height="30" uuid="d097044a-bbd8-470f-b4fb-794b23e9994d">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{fourthDate}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="1687" y="-14" width="86" height="30" uuid="39155f5d-e51f-4b78-a7f0-ad7dbbeb8b2c">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{fourthAmount}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="1859" y="-14" width="86" height="30" uuid="178d68eb-9a86-4176-ab5c-0509d0ba8b0b">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{fifthVrNo}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="1773" y="-14" width="86" height="30" uuid="07b5211a-ca08-4ba5-8d5e-3a2a4decf81e">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{fifthDate}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="1945" y="-14" width="86" height="30" uuid="4c832a98-3bdf-4aec-9e3f-e51453c8c1d9"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{fifthAmount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="-20" y="-14" width="33" height="30" uuid="96cc5ea7-01b2-4a18-b59e-cf78e13dad88"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</band>
+	</summary>
+</jasperReport>
